@@ -1,0 +1,11 @@
+*:not(span) {
+  font-size: 1rem;
+}
+
+a {
+  padding: 2rem;
+}
+
+span {
+  font-size: 3rem;
+}

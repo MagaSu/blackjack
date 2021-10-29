@@ -1,22 +1,30 @@
 <?php
 
+declare(strict_types=1);
+
 class Blackjack {
-  private $player = new Player(); // Player
-  private $dealer = new Player(); // Player for now
-  private $deck; // Deck
+  private Player $player; // Player
+  private Dealer $dealer; // Player for now
+  private Deck $deck; // Deck
 
-  public function getPlayer() { //returns the `player` object
-
-  }
-  public function getDealer() { //returns the `dealer` object
-
-  }
-  public function getDeck() { //returns the `deck` object
-
+  public function __construct(){
+    $this->deck = new Deck();
+    $this->deck->shuffle();
+    $this->player = new Player($this->deck);
+    $this->dealer = new Dealer($this->deck);
   }
 
-  function __construct($player){
-    $this->player = $player;
+  public function getPlayer() : Player
+  {
+    return $this -> player;
+  }
+  public function getDealer() : Dealer
+  {
+    return $this -> dealer;
+  }
+  public function getDeck() : Deck
+  {
+    return $this -> deck;
   }
 
 }
